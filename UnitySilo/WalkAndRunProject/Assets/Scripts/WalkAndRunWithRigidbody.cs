@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class WalkAndRun : MonoBehaviour
+public class WalkAndRunWithRigidbody : MonoBehaviour
 {
     //Change float speeds into FloatDatas
     public float moveSpeed, normalSpeed = 4f, fastSpeed = 7.5f;
@@ -34,13 +34,12 @@ public class WalkAndRun : MonoBehaviour
         
 
         Vector3 movement = new Vector3(horizontal, 0, vertical) * (moveSpeed * Time.deltaTime);
-        var lookDirection = new Vector3(horizontal + 0.001f, 0f, vertical);
-        
+
         rBody.MovePosition(gameObject.transform.position + movement);
-        rBody.MoveRotation(Quaternion.LookRotation(lookDirection));
-        // if (!rBody.IsSleeping())
-        // {
-        //     transform.rotation = Quaternion.LookRotation(lookDirection);
-        // }
+        
+        if (movement != Vector3.zero)
+        {
+            gameObject.transform.forward = movement;
+        }
     }
 }
