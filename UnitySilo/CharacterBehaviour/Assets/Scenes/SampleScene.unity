@@ -507,10 +507,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69006a4c46c952640bcdc17e98b8da09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: {fileID: 11400000, guid: 102a6002bb1d1824f86ce11e86391802, type: 2}
   normalSpeed: {fileID: 11400000, guid: d79c553f1fc2d6641af46ab139213b92, type: 2}
   fastSpeed: {fileID: 11400000, guid: f3d6459f505cbdd4a936c6df62ad8b1d, type: 2}
   jumpForce: {fileID: 11400000, guid: 81e0bb9cf5536b04dbc2920c39c6feb8, type: 2}
-  jumpCount: 0
   jumpMax: {fileID: 11400000, guid: 30f382f1eb2b99f4a8eb025df2d27b5b, type: 2}
 --- !u!1 &2032382784
 GameObject:

@@ -7,67 +7,60 @@ using UnityEngine;
 public class CharacterBehaviour : MonoBehaviour
 {
     private CharacterController controller;
-    private float gravity = -9.81f, yAxisVar;
     private Vector3 movement, lookDirection;
-    private bool canMove = true;
-    
-    private FloatData currentSpeed;
-    public FloatData normalSpeed, fastSpeed, jumpForce;
-    
-    public int jumpCount;
+    private float gravity = -9.81f, yAxisVar;
+    public FloatData speed, normalSpeed, fastSpeed, jumpForce;
     public IntData jumpMax;
+    private int jumpCount;
     
-    private WaitForFixedUpdate wffu = new WaitForFixedUpdate();
 
     private void Start()
     {
         controller = GetComponent<CharacterController>();
-        currentSpeed = normalSpeed;
-        StartCoroutine(Move());
+        speed = normalSpeed;
     }
 
-    private IEnumerator Move()
+    private void Update()
     {
-        canMove = true;
-        while (canMove)
+        yAxisVar += gravity * Time.deltaTime;
+
+        if (controller.isGrounded && movement.y < 0)
         {
-            yield return wffu;
-            
-            yAxisVar += gravity * Time.deltaTime;
-            
-            if (Input.GetButtonDown("Fire3"))
-            {
-                currentSpeed = fastSpeed;
-            }
-            else if (Input.GetButtonDown("Fire3"))
-            {
-                currentSpeed = normalSpeed;
-            }
-
-            var vInput = Input.GetAxis("Vertical") * currentSpeed.value * Time.deltaTime;
-            var hInput = Input.GetAxis("Horizontal") * currentSpeed.value * Time.deltaTime;
-
-            if (controller.isGrounded && movement.y < 0)
-            {
-                yAxisVar = -1;
-                jumpCount = 0;
-            }
-
-            if (Input.GetButtonDown("Jump") && jumpCount < jumpMax.value)
-            {
-                yAxisVar = jumpForce.value;
-                jumpCount++;
-            }
-
-            lookDirection.Set(hInput, 0, vInput);
-            
-            if (lookDirection != Vector3.zero)
-            {
-                transform.rotation = Quaternion.LookRotation(lookDirection);
-            }
-            
-            movement.Set(hInput, yAxisVar, vInput);
-            controller.Move(movement);
+            yAxisVar = -1;
+            jumpCount = 0;
         }
+
+        if (Input.GetButtonDown("Jump") && jumpCount < jumpMax.value)
+        {
+            yAxisVar = jumpForce.value;
+            jumpCount++;
+        }
+        
+        var verticalInput = Input.GetAxis("Vertical");
+        var horizontalInput = Input.GetAxis("Horizontal");
+
+        if (Input.GetButtonDown("Fire3"))
+        {
+            speed = fastSpeed;
+        }
+        else if (Input.GetButtonUp("Fire3"))
+        {
+            speed = normalSpeed;
+        }
+
+        lookDirection.Set(horizontalInput, 0, verticalInput);
+
+        if (lookDirection == Vector3.zero)
+        {
+            lookDirection.Set(0.0001f, 0, 0.0001f);
+        }
+        
+        if (horizontalInput > 0.5f || horizontalInput < -0.5f ||verticalInput > 0.5f || verticalInput < -0.5f)
+        {
+            transform.rotation = Quaternion.LookRotation(lookDirection);
+        }
+
+        movement.Set(horizontalInput, yAxisVar, verticalInput);
+        controller.Move(movement * (speed.value * Time.deltaTime));
     }
 }
