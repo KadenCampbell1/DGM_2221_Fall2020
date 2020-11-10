@@ -1,11 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
+using UnityEngine.Events;
 
 [CreateAssetMenu]
 public class Vector3Data : ScriptableObject
 {
     public Vector3 value;
+    public UnityEvent setPositionFromValueEvent;
+
+    
+    public void AddValueToValue(Vector3Data obj)
+    {
+        value += obj.value;
+    }
     
     public void SetValueFromPosition(Transform objPosition)
     {
@@ -14,6 +23,7 @@ public class Vector3Data : ScriptableObject
     
     public void SetPositionFromValue(Transform objPosition)
     {
+        setPositionFromValueEvent.Invoke();
         objPosition.position = value;
     }
 
@@ -28,5 +38,10 @@ public class Vector3Data : ScriptableObject
         {
             value = hit.point;
         }
+    }
+
+    public void SetFollowOffsetCameraValue(CinemachineVirtualCamera vCamera)
+    {
+        
     }
 }
