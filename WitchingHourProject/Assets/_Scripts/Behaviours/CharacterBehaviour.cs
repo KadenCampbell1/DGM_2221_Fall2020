@@ -8,7 +8,7 @@ public class CharacterBehaviour : MonoBehaviour
 {
     private CharacterController controller;
     private Vector3 movement, lookDirection, reverseScale;
-    private float gravity = -20f, regularGravity = -20f, reverseGravity = 20f, yAxisVar;
+    public float gravity = -20f, regularGravity = -20f, reverseGravity = 20f, yAxisVar;
     public FloatData speed, normalSpeed, fastSpeed, jumpForce, regularJumpForce, reverseJumpForce;
     public IntData jumpMax;
     private int jumpCount;

@@ -39,9 +39,4 @@ public class Vector3Data : ScriptableObject
             value = hit.point;
         }
     }
-
-    public void SetFollowOffsetCameraValue(CinemachineVirtualCamera vCamera)
-    {
-        
-    }
 }
