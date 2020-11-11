@@ -7,28 +7,55 @@ using UnityEngine;
 public class CharacterBehaviour : MonoBehaviour
 {
     private CharacterController controller;
-    private Vector3 movement, lookDirection;
-    private float gravity = -20f, yAxisVar;
-    public FloatData speed, normalSpeed, fastSpeed, jumpForce;
+    private Vector3 movement, lookDirection, reverseScale;
+    private float gravity = -20f, regularGravity = -20f, reverseGravity = 20f, yAxisVar;
+    public FloatData speed, normalSpeed, fastSpeed, jumpForce, regularJumpForce, reverseJumpForce;
     public IntData jumpMax;
     private int jumpCount;
+    public bool flippedGravity;
     
 
     private void Start()
     {
         controller = GetComponent<CharacterController>();
         speed = normalSpeed;
+        reverseScale.Set(1, -1, 1);
+    }
+
+    public void FlipGravity()
+    {
+        flippedGravity = !flippedGravity;
     }
 
     private void Update()
     {
-        yAxisVar += gravity * Time.deltaTime;
-
-        if (controller.isGrounded && movement.y < 0)
+        if (flippedGravity)
         {
-            yAxisVar = -1;
-            jumpCount = 0;
+            gravity = reverseGravity;
+            jumpForce = reverseJumpForce;
+            gameObject.transform.localScale = reverseScale;
+            
+            if (controller.isGrounded && movement.y > 0)
+            {
+                yAxisVar = 1;
+                jumpCount = 0;
+            }
         }
+        else
+        {
+            gravity = regularGravity;
+            jumpForce = regularJumpForce;
+            gameObject.transform.localScale = Vector3.one;
+            
+            if (controller.isGrounded && movement.y < 0)
+            {
+                yAxisVar = -1;
+                jumpCount = 0;
+            }
+        }
+        
+        yAxisVar += gravity * Time.deltaTime;
+        
 
         if (Input.GetButtonDown("Jump") && jumpCount < jumpMax.value)
         {
