@@ -8,7 +8,7 @@ using UnityEngine.Events;
 public class Vector3Data : ScriptableObject
 {
     public Vector3 value;
-    public UnityEvent setPositionFromValueEvent;
+    public UnityEvent setPositionFromValueEvent, setValueFromPositionEvent;
 
     
     public void AddValueToValue(Vector3Data obj)
@@ -19,12 +19,13 @@ public class Vector3Data : ScriptableObject
     public void SetValueFromPosition(Transform objPosition)
     {
         value = objPosition.position;
+        setValueFromPositionEvent.Invoke();
     }
     
     public void SetPositionFromValue(Transform objPosition)
     {
-        setPositionFromValueEvent.Invoke();
         objPosition.position = value;
+        setPositionFromValueEvent.Invoke();
     }
 
     public void SetValueFromRotation(Transform obj)
