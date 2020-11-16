@@ -12,7 +12,7 @@ public class CharacterBehaviour : MonoBehaviour
     public FloatData speed, normalSpeed, fastSpeed, jumpForce, regularJumpForce, reverseJumpForce;
     public IntData jumpMax;
     private int jumpCount;
-    public bool flippedGravity;
+    public BoolData flippedGravity;
     
 
     private void Start()
@@ -20,20 +20,22 @@ public class CharacterBehaviour : MonoBehaviour
         controller = GetComponent<CharacterController>();
         speed = normalSpeed;
         reverseScale.Set(1, -1, 1);
+        //reverseScale.Set(180,0,0);
     }
 
     public void FlipGravity()
     {
-        flippedGravity = !flippedGravity;
+        flippedGravity.value = !flippedGravity.value;
     }
 
     private void Update()
     {
-        if (flippedGravity)
+        if (flippedGravity.value)
         {
             gravity = reverseGravity;
             jumpForce = reverseJumpForce;
             gameObject.transform.localScale = reverseScale;
+            //gameObject.transform.rotation = Quaternion.Euler(reverseScale);
             
             if (controller.isGrounded && movement.y > 0)
             {
@@ -46,6 +48,7 @@ public class CharacterBehaviour : MonoBehaviour
             gravity = regularGravity;
             jumpForce = regularJumpForce;
             gameObject.transform.localScale = Vector3.one;
+            //gameObject.transform.rotation = Quaternion.Euler(Vector3.zero);
             
             if (controller.isGrounded && movement.y < 0)
             {
