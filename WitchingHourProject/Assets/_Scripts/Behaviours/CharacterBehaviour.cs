@@ -19,7 +19,7 @@ public class CharacterBehaviour : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         speed = normalSpeed;
-        reverseScale.Set(1, -1, 1);
+        //reverseScale.Set(1, -1, 1);
         //reverseScale.Set(180,0,0);
     }
 
@@ -30,34 +30,40 @@ public class CharacterBehaviour : MonoBehaviour
 
     private void Update()
     {
-        if (flippedGravity.value)
-        {
-            gravity = reverseGravity;
-            jumpForce = reverseJumpForce;
-            gameObject.transform.localScale = reverseScale;
-            //gameObject.transform.rotation = Quaternion.Euler(reverseScale);
-            
-            if (controller.isGrounded && movement.y > 0)
-            {
-                yAxisVar = 1;
-                jumpCount = 0;
-            }
-        }
-        else
-        {
-            gravity = regularGravity;
-            jumpForce = regularJumpForce;
-            gameObject.transform.localScale = Vector3.one;
-            //gameObject.transform.rotation = Quaternion.Euler(Vector3.zero);
-            
-            if (controller.isGrounded && movement.y < 0)
-            {
-                yAxisVar = -1;
-                jumpCount = 0;
-            }
-        }
+        // if (flippedGravity.value)
+        // {
+        //     gravity = reverseGravity;
+        //     jumpForce = reverseJumpForce;
+        //     gameObject.transform.localScale = reverseScale;
+        //     //gameObject.transform.rotation = Quaternion.Euler(reverseScale);
+        //     
+        //     if (controller.isGrounded && movement.y > 0)
+        //     {
+        //         yAxisVar = 1;
+        //         jumpCount = 0;
+        //     }
+        // }
+        // else
+        // {
+        //     gravity = regularGravity;
+        //     jumpForce = regularJumpForce;
+        //     gameObject.transform.localScale = Vector3.one;
+        //     //gameObject.transform.rotation = Quaternion.Euler(Vector3.zero);
+        //     
+        //     if (controller.isGrounded && movement.y < 0)
+        //     {
+        //         yAxisVar = -1;
+        //         jumpCount = 0;
+        //     }
+        // }
         
         yAxisVar += gravity * Time.deltaTime;
+        
+        if (controller.isGrounded && movement.y < 0)
+        {
+            yAxisVar = -1;
+            jumpCount = 0;
+        }
         
 
         if (Input.GetButtonDown("Jump") && jumpCount < jumpMax.value)
@@ -78,7 +84,18 @@ public class CharacterBehaviour : MonoBehaviour
             speed = normalSpeed;
         }
 
-        lookDirection.Set(verticalInput, 0, -horizontalInput);
+        
+        
+        if (flippedGravity.value)
+        {
+            lookDirection.Set(verticalInput, 0, horizontalInput);
+            movement.Set(verticalInput * speed.value, yAxisVar, horizontalInput * speed.value);
+        }
+        else
+        {
+            lookDirection.Set(verticalInput, 0, -horizontalInput);
+            movement.Set(verticalInput * speed.value, yAxisVar, -horizontalInput * speed.value);
+        }
 
         if (lookDirection == Vector3.zero)
         {
@@ -90,7 +107,6 @@ public class CharacterBehaviour : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(lookDirection);
         }
 
-        movement.Set(verticalInput * speed.value, yAxisVar, -horizontalInput * speed.value);
         controller.Move(movement * Time.deltaTime);
     }
 }
