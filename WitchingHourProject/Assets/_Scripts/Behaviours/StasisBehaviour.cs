@@ -21,9 +21,9 @@ public class StasisBehaviour : MonoBehaviour
         while (stasisDecrementBool.value)
         {
             yield return new WaitForSeconds(timer.value);
-            stasisCount.value -= decrementValue.value;
+            stasisCount.IncrementValue(decrementValue.value);
 
-            if (stasisCount.value <= 0)
+            if (stasisCount.value <= 0f)
             {
                 valueIsZeroEvent.Invoke();
                 stasisCount.value = 0;
@@ -39,7 +39,7 @@ public class StasisBehaviour : MonoBehaviour
         while (stasisIncrementBool.value)
         {
             yield return new WaitForSeconds(timer.value);
-            stasisCount.value += incrementValue.value;
+            stasisCount.IncrementValue(incrementValue.value);
 
             if (stasisCount.value >= maxValue.value)
             {

@@ -18,6 +18,11 @@ public class FloatData : ScriptableObject
     public void IncrementValue(float obj)
     {
         value += obj;
+
+        if (value <= 0.0001f && value >= -0.0001f)
+        {
+            value = 0;
+        }
     }
     
     public void SetImageFillAmount(Image image)
