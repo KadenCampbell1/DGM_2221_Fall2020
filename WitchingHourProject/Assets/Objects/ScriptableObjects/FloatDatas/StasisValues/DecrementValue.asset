@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2589d0e08dc96e4b8104ea577f0375f, type: 3}
   m_Name: DecrementValue
   m_EditorClassIdentifier: 
-  value: -0.1
+  value: -0.01
