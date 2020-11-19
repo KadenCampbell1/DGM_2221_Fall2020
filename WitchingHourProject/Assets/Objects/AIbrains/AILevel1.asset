@@ -25,3 +25,4 @@ MonoBehaviour:
   - {fileID: 8996206897699808199, guid: 92fbd8653d728854cbb6ec43ba9f6ccd, type: 3}
   - {fileID: 8996206897699808199, guid: 31f245414a7b79d458b41823be9e0048, type: 3}
   - {fileID: 8996206897699808199, guid: cb48071a2c0071a49b279b23dacc41d1, type: 3}
+  artPrefab: {fileID: 4538248369565445939, guid: 277413608c52d6d4a9dab10ce821429c, type: 3}

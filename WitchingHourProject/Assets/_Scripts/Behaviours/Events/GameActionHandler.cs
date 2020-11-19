@@ -10,6 +10,7 @@ public class GameActionHandler : MonoBehaviour
     private void Start()
     {
         gameAction.action += ActionHandler;
+        gameAction.floatAction += OnActionFloatHandler;
     }
 
     private void ActionHandler()
@@ -20,5 +21,10 @@ public class GameActionHandler : MonoBehaviour
     private void OnActionHandler()
     {
         handlerEvent.Invoke();
+    }
+    
+    private void OnActionFloatHandler(float obj)
+    {
+        //hard code
     }
 }

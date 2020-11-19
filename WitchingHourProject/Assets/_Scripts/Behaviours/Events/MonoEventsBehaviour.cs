@@ -13,8 +13,9 @@ public class MonoEventsBehaviour : MonoBehaviour
         onEnableEvent.Invoke();
     }
 
-    private void Start()
+    private IEnumerator Start()
     {
+        yield return new WaitForSeconds(10f);
         onStartEvent.Invoke();
     }
 }

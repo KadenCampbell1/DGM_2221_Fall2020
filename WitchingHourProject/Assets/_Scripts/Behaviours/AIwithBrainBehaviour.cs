@@ -15,13 +15,13 @@ public class AIwithBrainBehaviour : MonoBehaviour
     private MeshFilter filter;
     private MeshRenderer render;
     
+    
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         filter = GetComponent<MeshFilter>();
         render = GetComponent<MeshRenderer>();
-        filter.mesh = brain.mesh;
-        render.material = brain.material;
+        Instantiate<GameObject>(brain.artPrefab, this.transform);
         brain.Patrol(agent);
     }
 }

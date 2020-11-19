@@ -11,6 +11,7 @@ public class AIBrainBaseData : ScriptableObject
     public Material material;
     public Mesh mesh;
     public List<Transform> patrolPoints;
+    public GameObject artPrefab;
     
     private int i = 0;
     
