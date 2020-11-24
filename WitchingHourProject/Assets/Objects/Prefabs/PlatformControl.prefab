@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7518960357533813389}
   - component: {fileID: 8357873514131808123}
   - component: {fileID: 4774857934300961507}
-  m_Layer: 0
+  m_Layer: 24
   m_Name: MovingPlatform
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -173,7 +173,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 137216154839367664}
-  m_Layer: 0
+  m_Layer: 24
   m_Name: PlatformControl
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -7,9 +7,9 @@ using UnityEngine;
 public class CharacterBehaviour : MonoBehaviour
 {
     private CharacterController controller;
-    private Vector3 movement, lookDirection, reverseScale;
-    public float gravity = -20f, regularGravity = -20f, reverseGravity = 20f, yAxisVar;
-    public FloatData speed, normalSpeed, fastSpeed, jumpForce, regularJumpForce, reverseJumpForce;
+    private Vector3 movement, lookDirection;
+    public float gravity = -40f, yAxisVar;
+    public FloatData speed, normalSpeed, fastSpeed, jumpForce;
     public IntData jumpMax;
     private int jumpCount;
     public BoolData flippedGravity;
@@ -19,8 +19,6 @@ public class CharacterBehaviour : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         speed = normalSpeed;
-        //reverseScale.Set(1, -1, 1);
-        //reverseScale.Set(180,0,0);
     }
 
     public void FlipGravity()
@@ -30,32 +28,6 @@ public class CharacterBehaviour : MonoBehaviour
 
     private void Update()
     {
-        // if (flippedGravity.value)
-        // {
-        //     gravity = reverseGravity;
-        //     jumpForce = reverseJumpForce;
-        //     gameObject.transform.localScale = reverseScale;
-        //     //gameObject.transform.rotation = Quaternion.Euler(reverseScale);
-        //     
-        //     if (controller.isGrounded && movement.y > 0)
-        //     {
-        //         yAxisVar = 1;
-        //         jumpCount = 0;
-        //     }
-        // }
-        // else
-        // {
-        //     gravity = regularGravity;
-        //     jumpForce = regularJumpForce;
-        //     gameObject.transform.localScale = Vector3.one;
-        //     //gameObject.transform.rotation = Quaternion.Euler(Vector3.zero);
-        //     
-        //     if (controller.isGrounded && movement.y < 0)
-        //     {
-        //         yAxisVar = -1;
-        //         jumpCount = 0;
-        //     }
-        // }
         
         yAxisVar += gravity * Time.deltaTime;
         
