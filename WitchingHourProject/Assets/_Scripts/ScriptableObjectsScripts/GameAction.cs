@@ -8,6 +8,7 @@ public class GameAction : ScriptableObject
 {
     public UnityAction action;
     public UnityAction<float> floatAction;
+    public UnityAction<FloatData> floatDataAction;
 
     public void Raise()
     {
@@ -17,5 +18,10 @@ public class GameAction : ScriptableObject
     public void Raise(float obj)
     {
         floatAction?.Invoke(obj);
+    }
+    
+    public void Raise(FloatData obj)
+    {
+        floatDataAction?.Invoke(obj);
     }
 }

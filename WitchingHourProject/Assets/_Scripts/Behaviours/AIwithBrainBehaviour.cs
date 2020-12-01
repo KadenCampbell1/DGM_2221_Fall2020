@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class AIwithBrainBehaviour : MonoBehaviour
@@ -10,8 +11,10 @@ public class AIwithBrainBehaviour : MonoBehaviour
     public AIBrainBaseData brain;
     
     private NavMeshAgent agent;
-    public bool canPatrol, canHunt;
     private float health, speed, rotateSpeed, damage, baseOffset, timer;
+    public bool canPatrol, canHunt;
+    public UnityEvent incrementFloatEvent, handlerEvent;
+    public GameAction gameAction;
 
     private int i = 0;
     
@@ -22,6 +25,7 @@ public class AIwithBrainBehaviour : MonoBehaviour
     
     private void Start()
     {
+        gameAction.floatDataAction += IncrementFloatDataHandler;
         agent = GetComponent<NavMeshAgent>();
         RefreshBools();
         health = brain.health;
@@ -33,6 +37,11 @@ public class AIwithBrainBehaviour : MonoBehaviour
         wfs = wfs = new WaitForSeconds(timer);
         Instantiate<GameObject>(brain.artPrefab, this.transform);
         StartCoroutine(Patrol());
+    }
+
+    public void IncrementFloatDataHandler(FloatData obj)
+    {
+        //set up state machine (enum?) that has in each case the variable that you manipulate and then the parameter can ask for the state
     }
 
     public void RefreshBools()
