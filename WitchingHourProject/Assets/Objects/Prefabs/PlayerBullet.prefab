@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7211723153089935428}
   - component: {fileID: 7211723153089935431}
   - component: {fileID: 7211723153089935430}
+  - component: {fileID: 8473960725067847335}
   m_Layer: 9
   m_Name: PlayerBullet
   m_TagString: Untagged
@@ -139,4 +140,59 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c665a2807c32a4748bf0189d61b74ff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canDestroyOnStart: 1
   waitTime: 5
+--- !u!114 &8473960725067847335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7211723153089935433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e65e502735e4444e969bcd30b8dc5a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onTriggerEnterEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 84cb01ebc2f92a146933236e8ad5b7b7, type: 2}
+        m_TargetAssemblyTypeName: AIStatesData, Assembly-CSharp
+        m_MethodName: AssignHealthState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: dc5442c8f220061429ebde53bc2a2e0c, type: 2}
+        m_TargetAssemblyTypeName: GameAction, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 7ea701724f21ab0469f6f3d54c0d5984, type: 2}
+          m_ObjectArgumentAssemblyTypeName: FloatData, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onTriggerExitEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7211723153089935430}
+        m_TargetAssemblyTypeName: DestructBehaviour, Assembly-CSharp
+        m_MethodName: Destroy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

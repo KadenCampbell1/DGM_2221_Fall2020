@@ -9,11 +9,12 @@ using UnityEngine.Events;
 public class AIwithBrainBehaviour : MonoBehaviour
 {
     public AIBrainBaseData brain;
+    public AIStatesData stateData;
     
     private NavMeshAgent agent;
-    private float health, speed, rotateSpeed, damage, baseOffset, timer;
-    public bool canPatrol, canHunt;
-    public UnityEvent incrementFloatEvent, handlerEvent;
+    private float namedValue, dataValue, health, speed, rotateSpeed, damage, baseOffset, timer;
+    private bool canPatrol, canHunt;
+    public UnityEvent floatDataHandlerEvent, aiDeath;
     public GameAction gameAction;
 
     private int i = 0;
@@ -21,11 +22,12 @@ public class AIwithBrainBehaviour : MonoBehaviour
     private readonly WaitForFixedUpdate wffu = new WaitForFixedUpdate();
     private WaitForSeconds wfs;
 
-    public GameObject obj;
+    // public GameObject obj;
     
     private void Start()
     {
-        gameAction.floatDataAction += IncrementFloatDataHandler;
+        gameAction.floatDataAction += FloatDataHandler;
+        gameAction.transformAction += StartHunt;
         agent = GetComponent<NavMeshAgent>();
         RefreshBools();
         health = brain.health;
@@ -39,9 +41,70 @@ public class AIwithBrainBehaviour : MonoBehaviour
         StartCoroutine(Patrol());
     }
 
-    public void IncrementFloatDataHandler(FloatData obj)
+    private void Update()
     {
-        //set up state machine (enum?) that has in each case the variable that you manipulate and then the parameter can ask for the state
+        switch (stateData.value)
+        {
+            case AIStatesData.floatName.health:
+                namedValue = health;
+                break;
+            case AIStatesData.floatName.speed:
+                namedValue = speed;
+                break;
+            case AIStatesData.floatName.rotateSpeed:
+                namedValue = rotateSpeed;
+                break;
+            case AIStatesData.floatName.damage:
+                namedValue = damage;
+                break;
+            case AIStatesData.floatName.baseOffset:
+                namedValue = baseOffset;
+                break;
+            case AIStatesData.floatName.timer:
+                namedValue = timer;
+                break;
+        }
+    }
+
+    private void AssignNamedValue()
+    {
+        switch (stateData.value)
+        {
+            case AIStatesData.floatName.health:
+                health = namedValue;
+                break;
+            case AIStatesData.floatName.speed:
+                speed = namedValue;
+                break;
+            case AIStatesData.floatName.rotateSpeed:
+                rotateSpeed = namedValue;
+                break;
+            case AIStatesData.floatName.damage:
+                damage = namedValue;
+                break;
+            case AIStatesData.floatName.baseOffset:
+                baseOffset = namedValue;
+                break;
+            case AIStatesData.floatName.timer:
+                timer = namedValue;
+                break;
+        }
+    }
+
+    private void FloatDataHandler(FloatData obj)
+    {
+        dataValue = obj.value;
+        floatDataHandlerEvent.Invoke();
+    }
+    
+    public void IncrementFloat()
+    {
+        namedValue += dataValue;
+        AssignNamedValue();
+        if (health <= 0)
+        {
+            aiDeath.Invoke();
+        }
     }
 
     public void RefreshBools()
@@ -63,6 +126,11 @@ public class AIwithBrainBehaviour : MonoBehaviour
         StartCoroutine(ChangeBools());
     }
 
+    public void StartHunt(Transform obj)
+    {
+        StartCoroutine(Hunt(obj.transform));
+    }
+
     private IEnumerator Patrol()
     {
         canPatrol = true;
@@ -78,7 +146,7 @@ public class AIwithBrainBehaviour : MonoBehaviour
             }
         }
 
-        StartCoroutine(Hunt(obj.transform));
+        // StartCoroutine(Hunt(obj.transform));
     }
 
     private IEnumerator Hunt(Transform obj)
@@ -91,6 +159,6 @@ public class AIwithBrainBehaviour : MonoBehaviour
             agent.destination = obj.position;
         }
 
-        StartCoroutine(Patrol());
+        //StartCoroutine(Patrol());
     }
 }

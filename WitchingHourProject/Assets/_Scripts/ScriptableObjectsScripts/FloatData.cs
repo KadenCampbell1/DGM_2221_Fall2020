@@ -9,6 +9,7 @@ using UnityEngine.Video;
 public class FloatData : ScriptableObject
 {
     public float value;
+    public UnityEvent lessThanZeroEvent;
 
     public void SetValue(float obj)
     {
@@ -22,6 +23,11 @@ public class FloatData : ScriptableObject
         if (value <= 0.0001f && value >= -0.0001f)
         {
             value = 0;
+        }
+
+        if (value <= 0)
+        {
+            lessThanZeroEvent.Invoke();
         }
     }
     

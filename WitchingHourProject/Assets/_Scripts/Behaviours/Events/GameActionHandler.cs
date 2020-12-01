@@ -10,8 +10,8 @@ public class GameActionHandler : MonoBehaviour
     private void Start()
     {
         gameAction.action += ActionHandler;
-        gameAction.floatAction += OnActionFloatHandler;
         gameAction.floatDataAction += OnActionFloatDataHandler;
+        gameAction.transformAction += OnTransformAction;
     }
 
     private void ActionHandler()
@@ -23,13 +23,13 @@ public class GameActionHandler : MonoBehaviour
     {
         handlerEvent.Invoke();
     }
-    
-    private void OnActionFloatHandler(float obj)
-    {
-        //hard code
-    }
-    
+
     private void OnActionFloatDataHandler(FloatData obj)
+    {
+        handlerEvent.Invoke();
+    }
+
+    private void OnTransformAction(Transform obj)
     {
         handlerEvent.Invoke();
     }

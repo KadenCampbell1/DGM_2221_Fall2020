@@ -17,14 +17,14 @@ TagManager:
   - Player
   - PlayerBullet
   - PlayerClickLayer
-  - 
+  - PlayerInteraction
   - 
   - 
   - BulletInteraction
   - Enemy
   - EnemyBullet
   - EnemyHunt
-  - 
+  - EnemyInteraction
   - 
   - 
   - 

@@ -10,4 +10,5 @@ public class AIBrainBaseData : ScriptableObject
     public bool canShoot, canPatrol, canHunt;
     public List<Transform> patrolPoints;
     public GameObject artPrefab;
+    
 }
