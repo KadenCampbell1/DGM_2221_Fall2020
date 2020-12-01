@@ -16,13 +16,13 @@ MonoBehaviour:
   speed: 3.5
   rotateSpeed: 270
   damage: 0.1
+  baseOffset: 0.95
+  timer: 1
   canShoot: 0
-  canPatrol: 0
+  canPatrol: 1
   canHunt: 0
-  material: {fileID: 2100000, guid: 451b7d1b123520446bc61d6f32a54b4e, type: 2}
-  mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
   patrolPoints:
   - {fileID: 8996206897699808199, guid: 92fbd8653d728854cbb6ec43ba9f6ccd, type: 3}
   - {fileID: 8996206897699808199, guid: 31f245414a7b79d458b41823be9e0048, type: 3}
   - {fileID: 8996206897699808199, guid: cb48071a2c0071a49b279b23dacc41d1, type: 3}
-  artPrefab: {fileID: 4538248369565445939, guid: 277413608c52d6d4a9dab10ce821429c, type: 3}
+  artPrefab: {fileID: 1330718193215652778, guid: 640b36a0caecf8842a83fc66a598b31b, type: 3}
