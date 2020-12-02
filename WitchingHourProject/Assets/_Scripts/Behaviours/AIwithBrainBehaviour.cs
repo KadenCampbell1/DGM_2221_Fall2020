@@ -15,7 +15,7 @@ public class AIwithBrainBehaviour : MonoBehaviour
     private float namedValue, dataValue, health, speed, rotateSpeed, damage, baseOffset, timer;
     private bool canPatrol, canHunt;
     public UnityEvent floatDataHandlerEvent, aiDeath;
-    public GameAction gameAction;
+    public GameAction gameAction, transformAction;
 
     private int i = 0;
     
@@ -27,7 +27,7 @@ public class AIwithBrainBehaviour : MonoBehaviour
     private void Start()
     {
         gameAction.floatDataAction += FloatDataHandler;
-        gameAction.transformAction += StartHunt;
+        transformAction.transformAction += StartHunt;
         agent = GetComponent<NavMeshAgent>();
         RefreshBools();
         health = brain.health;
@@ -113,17 +113,9 @@ public class AIwithBrainBehaviour : MonoBehaviour
         canHunt = brain.canHunt;
     }
 
-    private IEnumerator ChangeBools()
+    public void StartPatrol()
     {
-        var newTime = new WaitForSeconds(timer * 2);
-        yield return newTime;
-        canPatrol =! canPatrol;
-        canHunt = !canHunt;
-    }
-
-    public void StartRoutines()
-    {
-        StartCoroutine(ChangeBools());
+        StartCoroutine(Patrol());
     }
 
     public void StartHunt(Transform obj)
@@ -145,8 +137,6 @@ public class AIwithBrainBehaviour : MonoBehaviour
                 i = (i + 1) % brain.patrolPoints.Count;
             }
         }
-
-        // StartCoroutine(Hunt(obj.transform));
     }
 
     private IEnumerator Hunt(Transform obj)
@@ -158,7 +148,5 @@ public class AIwithBrainBehaviour : MonoBehaviour
             yield return wffu;
             agent.destination = obj.position;
         }
-
-        //StartCoroutine(Patrol());
     }
 }
