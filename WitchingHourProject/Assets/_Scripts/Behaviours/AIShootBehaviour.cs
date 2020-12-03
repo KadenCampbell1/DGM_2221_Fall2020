@@ -7,9 +7,8 @@ using UnityEngine.Events;
 
 public class AIShootBehaviour : MonoBehaviour
 {
-    public TurretBehaviour lookAt;
+    // public TurretBehaviour lookAt;
     public InstancerBehaviour instance;
-    public Vector3Data playerPositionData;
     public AIBrainBaseData aiBrain;
     public bool AITriggered, canShoot;
     public float holdtime = 1f;
@@ -27,7 +26,7 @@ public class AIShootBehaviour : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         onTriggerEnterEvent.Invoke();
-        lookAt.OnLook(playerPositionData);
+        // lookAt.OnLook(playerPositionData);
         AITriggered = true;
         StartCoroutine(OnAIShoot());
     }
@@ -43,7 +42,7 @@ public class AIShootBehaviour : MonoBehaviour
         if (!canShoot) yield break;
         while (AITriggered)
         {
-            instance.Instance(playerPositionData);
+            instance.Instance();
             yield return wfs;
         }
 
