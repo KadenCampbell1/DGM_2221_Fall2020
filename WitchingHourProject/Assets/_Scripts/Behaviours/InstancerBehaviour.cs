@@ -6,11 +6,10 @@ using UnityEngine.Events;
 public class InstancerBehaviour : MonoBehaviour
 {
     public GameObject prefab;
-    public float holdTime = 0.5f, scaleIncrement = 1.25f;
+    public float holdTime = 0.5f;
     public bool canLoop = false;
     public int instanceCount = 1;
-    public Vector3 scale;
-    
+
     private int counter = 0;
     private WaitForSeconds wfs;
     
@@ -19,7 +18,6 @@ public class InstancerBehaviour : MonoBehaviour
     private void Start()
     {
         wfs = new WaitForSeconds(holdTime);
-        scale = prefab.transform.localScale;
         startEvent.Invoke();
     }
 
@@ -61,14 +59,6 @@ public class InstancerBehaviour : MonoBehaviour
         var newObj = Instantiate(prefab, location, rotation);
     }
 
-    public void Instance(float obj, Vector3Data rotateDirection)
-    {
-        var location = transform.position;
-        var rotation = rotateDirection.value;
-        scale /= scaleIncrement;
-        var newObj = Instantiate(prefab, location, Quaternion.Euler(rotation));
-    }
-    
     private IEnumerator CallInstanceEvent()
     {
         while (canLoop && counter < instanceCount)
