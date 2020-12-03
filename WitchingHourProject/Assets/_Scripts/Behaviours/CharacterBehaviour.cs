@@ -12,7 +12,7 @@ public class CharacterBehaviour : MonoBehaviour
     public FloatData speed, normalSpeed, fastSpeed, jumpForce;
     public IntData jumpMax;
     private int jumpCount;
-    public BoolData flippedGravity;
+    public BoolData flippedGravity, onPlatform;
     
 
     private void Start()
@@ -33,7 +33,14 @@ public class CharacterBehaviour : MonoBehaviour
         
         if (controller.isGrounded && movement.y < 0)
         {
-            yAxisVar = -1;
+            if (onPlatform)
+            {
+                yAxisVar = 0;
+            }
+            else
+            {
+                yAxisVar = -1;
+            }
             jumpCount = 0;
         }
         

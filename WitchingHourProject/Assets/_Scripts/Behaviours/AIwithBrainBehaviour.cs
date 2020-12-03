@@ -94,7 +94,7 @@ public class AIwithBrainBehaviour : MonoBehaviour
     private void FloatDataHandler(FloatData obj)
     {
         dataValue = obj.value;
-        floatDataHandlerEvent.Invoke();
+        // floatDataHandlerEvent.Invoke();
     }
     
     public void IncrementFloat()

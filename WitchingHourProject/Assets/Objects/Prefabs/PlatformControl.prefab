@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7518960357533813389}
   - component: {fileID: 8357873514131808123}
   - component: {fileID: 4774857934300961507}
+  - component: {fileID: 5928060064932340411}
   m_Layer: 24
   m_Name: MovingPlatform
   m_TagString: Platform
@@ -164,6 +165,19 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   holdTime: 1
+--- !u!65 &5928060064932340411
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339575641670214161}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.0000001, z: 1}
+  m_Center: {x: 0, y: 0.4, z: 0}
 --- !u!1 &8547574831947704716
 GameObject:
   m_ObjectHideFlags: 0
