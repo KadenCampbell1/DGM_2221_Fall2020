@@ -181,9 +181,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onTriggerExitEvent:
-    m_PersistentCalls:
-      m_Calls:
       - m_Target: {fileID: 7211723153089935430}
         m_TargetAssemblyTypeName: DestructBehaviour, Assembly-CSharp
         m_MethodName: Destroy
@@ -196,3 +193,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onTriggerExitEvent:
+    m_PersistentCalls:
+      m_Calls: []

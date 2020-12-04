@@ -6,11 +6,12 @@ using UnityEngine.Events;
 public class InstancerBehaviour : MonoBehaviour
 {
     public GameObject prefab;
+    public List<GameObject> objList;
     public float holdTime = 0.5f;
     public bool canLoop = false;
     public int instanceCount = 1;
 
-    private int counter = 0;
+    private int counter = 0, iCounter = 0;
     private WaitForSeconds wfs;
     
     public UnityEvent startEvent, onCallEvent;
@@ -57,6 +58,22 @@ public class InstancerBehaviour : MonoBehaviour
         var location = obj.position;
         var rotation = obj.rotation;
         var newObj = Instantiate(prefab, location, rotation);
+    }
+
+    public void InstanceList()
+    {
+        var location = transform.position;
+        var rotation = transform.rotation;
+        var newObj = Instantiate(objList[iCounter], location, rotation);
+        iCounter = (iCounter + 1) % objList.Count;
+    }
+    
+    public void InstanceList(Vector3Data obj)
+    {
+        var location = transform.position;
+        var rotation = transform.rotation;
+        var newObj = Instantiate(objList[iCounter], location, Quaternion.Euler(obj.value));
+        iCounter = (iCounter + 1) % objList.Count;
     }
 
     private IEnumerator CallInstanceEvent()

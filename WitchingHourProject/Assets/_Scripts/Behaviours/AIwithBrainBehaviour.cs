@@ -14,7 +14,7 @@ public class AIwithBrainBehaviour : MonoBehaviour
     private NavMeshAgent agent;
     private float namedValue, dataValue, health, speed, rotateSpeed, damage, baseOffset, timer;
     private bool canPatrol, canHunt;
-    public UnityEvent floatDataHandlerEvent, aiDeath;
+    public UnityEvent aiDeath;
     public GameAction gameAction, transformAction;
 
     private int i = 0;
@@ -22,8 +22,6 @@ public class AIwithBrainBehaviour : MonoBehaviour
     private readonly WaitForFixedUpdate wffu = new WaitForFixedUpdate();
     private WaitForSeconds wfs;
 
-    // public GameObject obj;
-    
     private void Start()
     {
         gameAction.floatDataAction += FloatDataHandler;
@@ -94,7 +92,6 @@ public class AIwithBrainBehaviour : MonoBehaviour
     private void FloatDataHandler(FloatData obj)
     {
         dataValue = obj.value;
-        // floatDataHandlerEvent.Invoke();
     }
     
     public void IncrementFloat()

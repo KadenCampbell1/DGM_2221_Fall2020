@@ -18,8 +18,8 @@ MonoBehaviour:
   damage: 0.1
   baseOffset: 0.95
   timer: 1
-  canShoot: 1
-  canPatrol: 1
+  canShoot: 0
+  canPatrol: 0
   canHunt: 0
   patrolPoints:
   - {fileID: 8996206897699808199, guid: 92fbd8653d728854cbb6ec43ba9f6ccd, type: 3}
