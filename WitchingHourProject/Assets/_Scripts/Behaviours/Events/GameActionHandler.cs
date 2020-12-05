@@ -12,6 +12,7 @@ public class GameActionHandler : MonoBehaviour
         gameAction.action += ActionHandler;
         gameAction.floatDataAction += OnActionFloatDataHandler;
         gameAction.transformAction += OnTransformAction;
+        gameAction.colliderAction += OnColliderAction;
     }
 
     private void ActionHandler()
@@ -30,6 +31,11 @@ public class GameActionHandler : MonoBehaviour
     }
 
     private void OnTransformAction(Transform obj)
+    {
+        handlerEvent.Invoke();
+    }
+
+    private void OnColliderAction(BoxCollider obj)
     {
         handlerEvent.Invoke();
     }

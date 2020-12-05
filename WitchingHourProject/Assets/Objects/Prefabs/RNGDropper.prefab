@@ -48,8 +48,8 @@ MonoBehaviour:
   - {fileID: 5561094585272498721, guid: 840ad694f0df19147aef1de51d7228a4, type: 3}
   - {fileID: 8079359045554212913, guid: 73ffbaf1e90daac429669d355c3bbefa, type: 3}
   chanceOneMin: 0
-  chanceOneMax: 0
-  chanceTwoMin: 0
-  chanceTwoMax: 0
-  chanceThreeMin: 0
-  chanceThreeMax: 0
+  chanceOneMax: 20
+  chanceTwoMin: 40
+  chanceTwoMax: 60
+  chanceThreeMin: 80
+  chanceThreeMax: 100

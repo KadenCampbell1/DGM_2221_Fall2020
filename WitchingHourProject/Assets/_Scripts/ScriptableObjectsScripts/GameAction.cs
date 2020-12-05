@@ -9,6 +9,7 @@ public class GameAction : ScriptableObject
     public UnityAction action;
     public UnityAction<FloatData> floatDataAction;
     public UnityAction<Transform> transformAction;
+    public UnityAction<BoxCollider> colliderAction;
 
     public void Raise()
     {
@@ -23,5 +24,10 @@ public class GameAction : ScriptableObject
     public void Raise(Transform obj)
     {
         transformAction?.Invoke(obj);
+    }
+
+    public void Raise(BoxCollider obj)
+    {
+        colliderAction?.Invoke(obj);
     }
 }
