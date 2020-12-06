@@ -34,6 +34,10 @@ public class AIwithBrainBehaviour : MonoBehaviour
         damage = brain.damage;
         baseOffset = brain.baseOffset;
         timer = brain.timer;
+        
+        agent.speed = speed;
+        agent.angularSpeed = rotateSpeed;
+        agent.baseOffset = baseOffset;
         wfs = wfs = new WaitForSeconds(timer);
         Instantiate<GameObject>(brain.artPrefab, this.transform);
         StartCoroutine(Patrol());

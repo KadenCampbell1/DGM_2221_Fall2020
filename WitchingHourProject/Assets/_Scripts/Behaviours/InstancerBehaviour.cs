@@ -14,7 +14,7 @@ public class InstancerBehaviour : MonoBehaviour
     private int counter = 0, iCounter = 0;
     private WaitForSeconds wfs;
     
-    public UnityEvent startEvent, onCallEvent;
+    public UnityEvent startEvent, onCallEvent, restartEvent;
     
     private void Start()
     {
@@ -86,5 +86,6 @@ public class InstancerBehaviour : MonoBehaviour
         }
         canLoop = false;
         counter = 0;
+        restartEvent.Invoke();
     }
 }

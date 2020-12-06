@@ -10,8 +10,8 @@ public class AIShootBehaviour : MonoBehaviour
     // public TurretBehaviour lookAt;
     public InstancerBehaviour instance;
     public AIBrainBaseData aiBrain;
-    public bool AITriggered, canShoot;
-    public float holdtime = 1f;
+    public bool aiTriggered, canShoot, isBoss;
+    public float holdtime = 0.6f;
     public UnityEvent onTriggerEnterEvent;
 
     private WaitForFixedUpdate wffu = new WaitForFixedUpdate();
@@ -27,20 +27,23 @@ public class AIShootBehaviour : MonoBehaviour
     {
         onTriggerEnterEvent.Invoke();
         // lookAt.OnLook(playerPositionData);
-        AITriggered = true;
+        aiTriggered = true;
         StartCoroutine(OnAIShoot());
     }
 
     private IEnumerator OnTriggerExit(Collider other)
     {
-        yield return new WaitForSeconds(5f);
-        AITriggered = false;
+        if (!isBoss)
+        {
+            yield return new WaitForSeconds(5f);
+            aiTriggered = false;
+        }
     }
 
     private IEnumerator OnAIShoot()
     {
         if (!canShoot) yield break;
-        while (AITriggered)
+        while (aiTriggered)
         {
             instance.Instance();
             yield return wfs;
