@@ -22,6 +22,11 @@ public class InstancerBehaviour : MonoBehaviour
         startEvent.Invoke();
     }
 
+    public void CanLoopTrue()
+    {
+        canLoop = true;
+    }
+
     public void CanLoopFalse()
     {
         canLoop = false;
@@ -29,7 +34,6 @@ public class InstancerBehaviour : MonoBehaviour
     
     public void StartLoopEvents()
     {
-        canLoop = true;
         StartCoroutine(CallInstanceEvent());
     }
     
