@@ -5,7 +5,7 @@ using UnityEngine;
 public class RNGDropBehaviour : MonoBehaviour
 {
     public List<GameObject> list;
-    public float chanceOneMin, chanceOneMax, chanceTwoMin, chanceTwoMax, chanceThreeMin, chanceThreeMax;
+    public float chanceOneMin, chanceOneMax, chanceTwoMin, chanceTwoMax;
     private int i;
 
     public void RollRNG()
@@ -18,10 +18,6 @@ public class RNGDropBehaviour : MonoBehaviour
         if (i >= chanceTwoMin && i <= chanceTwoMax)
         {
             Instantiate(list[1], transform.position, transform.rotation);
-        }
-        if (i >= chanceThreeMin && i <= chanceThreeMax)
-        {
-            Instantiate(list[2], transform.position, transform.rotation);
         }
     }
 }

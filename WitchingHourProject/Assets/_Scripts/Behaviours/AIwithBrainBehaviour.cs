@@ -14,7 +14,7 @@ public class AIwithBrainBehaviour : MonoBehaviour
     private NavMeshAgent agent;
     private float namedValue, dataValue, health, speed, rotateSpeed, damage, baseOffset, timer;
     private bool canPatrol, canHunt;
-    public UnityEvent aiDeath;
+    public UnityEvent aiDeath, bossSwitch;
     public GameAction gameAction, transformAction;
 
     private int i = 0;
@@ -74,6 +74,10 @@ public class AIwithBrainBehaviour : MonoBehaviour
         {
             case AIStatesData.floatName.health:
                 health = namedValue;
+                if (health <= 2)
+                {
+                    bossSwitch.Invoke();
+                }
                 break;
             case AIStatesData.floatName.speed:
                 speed = namedValue;

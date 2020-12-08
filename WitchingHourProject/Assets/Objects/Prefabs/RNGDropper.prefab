@@ -46,10 +46,7 @@ MonoBehaviour:
   list:
   - {fileID: 7355754619544707327, guid: 4c8a276c14256824d94fd62b2c7eff18, type: 3}
   - {fileID: 5561094585272498721, guid: 840ad694f0df19147aef1de51d7228a4, type: 3}
-  - {fileID: 8079359045554212913, guid: 73ffbaf1e90daac429669d355c3bbefa, type: 3}
   chanceOneMin: 0
-  chanceOneMax: 20
-  chanceTwoMin: 40
-  chanceTwoMax: 60
-  chanceThreeMin: 80
-  chanceThreeMax: 100
+  chanceOneMax: 33
+  chanceTwoMin: 66
+  chanceTwoMax: 100

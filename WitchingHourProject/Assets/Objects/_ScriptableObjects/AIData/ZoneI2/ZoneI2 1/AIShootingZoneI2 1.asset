@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26880c168e24e4542ae1d801faacfc70, type: 3}
+  m_Name: AIShootingZoneI2 1
+  m_EditorClassIdentifier: 
+  health: 0.7
+  speed: 12.5
+  rotateSpeed: 300
+  damage: 0.3
+  baseOffset: 0.95
+  timer: 1
+  canShoot: 1
+  canPatrol: 0
+  canHunt: 0
+  patrolPoints:
+  - {fileID: 8996206897699808199, guid: d7b3539220f3d614197940d283bac3d8, type: 3}
+  - {fileID: 8996206897699808199, guid: 43757082406cdd646a373cb7bf6586c8, type: 3}
+  - {fileID: 8996206897699808199, guid: 8492ae12e50240f43b58dbb90ba63811, type: 3}
+  - {fileID: 8996206897699808199, guid: fbe2031926d686a4eb6738c07c208b31, type: 3}
+  - {fileID: 8996206897699808199, guid: dcf02f006722cf643816cff37d56f9e3, type: 3}
+  - {fileID: 8996206897699808199, guid: d5b5e925a70ae034da389217abb7add8, type: 3}
+  artPrefab: {fileID: 1330718193215652778, guid: 9fb52d41d72c41a48baad732d32cace8, type: 3}

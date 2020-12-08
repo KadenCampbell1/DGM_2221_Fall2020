@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26880c168e24e4542ae1d801faacfc70, type: 3}
+  m_Name: AIGruntZoneI1
+  m_EditorClassIdentifier: 
+  health: 0.5
+  speed: 7.5
+  rotateSpeed: 270
+  damage: 0.1
+  baseOffset: 0.95
+  timer: 1
+  canShoot: 0
+  canPatrol: 0
+  canHunt: 0
+  patrolPoints:
+  - {fileID: 8996206897699808199, guid: 56054037e7520e94d923249adece5eba, type: 3}
+  - {fileID: 8996206897699808199, guid: d1e664d76f0f8d042ac0116f5cf57ca6, type: 3}
+  - {fileID: 8996206897699808199, guid: e18ed1ba3a28a4348acb991a99e190c5, type: 3}
+  artPrefab: {fileID: 1330718193215652778, guid: 640b36a0caecf8842a83fc66a598b31b, type: 3}

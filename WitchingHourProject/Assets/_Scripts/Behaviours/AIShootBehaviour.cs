@@ -7,7 +7,6 @@ using UnityEngine.Events;
 
 public class AIShootBehaviour : MonoBehaviour
 {
-    // public TurretBehaviour lookAt;
     public InstancerBehaviour instance;
     public AIBrainBaseData aiBrain;
     public bool aiTriggered, canShoot, isBoss;
@@ -26,7 +25,6 @@ public class AIShootBehaviour : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         onTriggerEnterEvent.Invoke();
-        // lookAt.OnLook(playerPositionData);
         aiTriggered = true;
         StartCoroutine(OnAIShoot());
     }

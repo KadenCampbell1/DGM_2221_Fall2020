@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   instance: {fileID: 5927538681680727465}
-  aiBrain: {fileID: 11400000, guid: d038dcb92668096428a34f4de47eb6eb, type: 2}
+  aiBrain: {fileID: 11400000, guid: ac84aa87270f379488a79209aa08e650, type: 2}
   aiTriggered: 0
   canShoot: 0
   isBoss: 0
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 5927538681842465310}
   - component: {fileID: 5927538681842465305}
   m_Layer: 15
-  m_Name: AIwithBrains
+  m_Name: AIGruntwithBrains
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -217,7 +217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c151b693ce49554993dbebaa05f2d40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brain: {fileID: 11400000, guid: d038dcb92668096428a34f4de47eb6eb, type: 2}
+  brain: {fileID: 11400000, guid: 9cde4ba156277d442839f832f19e302b, type: 2}
   stateData: {fileID: 11400000, guid: 84cb01ebc2f92a146933236e8ad5b7b7, type: 2}
   aiDeath:
     m_PersistentCalls:
