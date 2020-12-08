@@ -60,8 +60,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   instance: {fileID: 5927538681680727465}
   aiBrain: {fileID: 11400000, guid: d038dcb92668096428a34f4de47eb6eb, type: 2}
-  AITriggered: 0
+  aiTriggered: 0
   canShoot: 0
+  isBoss: 0
   holdtime: 1
   onTriggerEnterEvent:
     m_PersistentCalls:
@@ -87,6 +88,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onCallEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  restartEvent:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &5927538681842465296
@@ -230,10 +234,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 5927538681842465310}
-        m_TargetAssemblyTypeName: DestructBehaviour, Assembly-CSharp
-        m_MethodName: Destroy
-        m_Mode: 1
+      - m_Target: {fileID: 5927538681842465296}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
