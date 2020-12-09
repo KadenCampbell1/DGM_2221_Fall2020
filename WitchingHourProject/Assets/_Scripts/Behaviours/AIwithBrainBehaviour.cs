@@ -74,7 +74,7 @@ public class AIwithBrainBehaviour : MonoBehaviour
         {
             case AIStatesData.floatName.health:
                 health = namedValue;
-                if (health <= 2)
+                if (health <= 2 && health >= 1.85f)
                 {
                     bossSwitch.Invoke();
                 }

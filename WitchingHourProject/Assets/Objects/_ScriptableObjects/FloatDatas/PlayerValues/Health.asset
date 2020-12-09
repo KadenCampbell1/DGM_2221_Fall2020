@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2589d0e08dc96e4b8104ea577f0375f, type: 3}
   m_Name: Health
   m_EditorClassIdentifier: 
-  value: 0.75
+  value: 90.49994
   lessThanZeroEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: ba5c06eb975c5864b8381f47c6bc5bd9, type: 2}
-        m_TargetAssemblyTypeName: DebuggerData, Assembly-CSharp
-        m_MethodName: OnDebug
-        m_Mode: 5
+      - m_Target: {fileID: 11400000, guid: 2a39ec3409e310245a830888d2de7157, type: 2}
+        m_TargetAssemblyTypeName: GameAction, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
