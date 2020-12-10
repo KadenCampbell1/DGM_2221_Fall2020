@@ -29,4 +29,9 @@ public class RiftBlocksBehaviour : MonoBehaviour
     {
         riftCollider.isTrigger = false;
     }
+
+    private void OnDestroy()
+    {
+        colliderAction.colliderAction -= GrabCollider;
+    }
 }

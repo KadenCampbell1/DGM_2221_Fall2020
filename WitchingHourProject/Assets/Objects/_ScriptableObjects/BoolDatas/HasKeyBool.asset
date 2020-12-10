@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5371a6efce25a6a4e9c4c10d7a39fec1, type: 3}
   m_Name: HasKeyBool
   m_EditorClassIdentifier: 
-  value: 1
+  value: 0
   trueEvent:
     m_PersistentCalls:
       m_Calls:

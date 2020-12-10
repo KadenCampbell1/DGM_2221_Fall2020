@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5371a6efce25a6a4e9c4c10d7a39fec1, type: 3}
   m_Name: FlippedGravityBool
   m_EditorClassIdentifier: 
-  value: 0
+  value: 1
+  trueEvent:
+    m_PersistentCalls:
+      m_Calls: []

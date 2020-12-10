@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Events;
 
 public class GameActionHandler : MonoBehaviour
@@ -38,5 +39,13 @@ public class GameActionHandler : MonoBehaviour
     private void OnColliderAction(BoxCollider obj)
     {
         handlerEvent.Invoke();
+    }
+
+    private void OnDestroy()
+    {
+        gameAction.action -= ActionHandler;
+        gameAction.floatDataAction -= OnActionFloatDataHandler;
+        gameAction.transformAction -= OnTransformAction;
+        gameAction.colliderAction -= OnColliderAction;
     }
 }

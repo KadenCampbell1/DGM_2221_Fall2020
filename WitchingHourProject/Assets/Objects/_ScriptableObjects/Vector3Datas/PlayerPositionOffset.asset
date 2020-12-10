@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 983d6efd8a4aafd48a3051f64a0d2a04, type: 3}
   m_Name: PlayerPositionOffset
   m_EditorClassIdentifier: 
-  value: {x: 0, y: 0, z: 5}
+  value: {x: 0, y: 0, z: -6}
   setPositionFromValueEvent:
     m_PersistentCalls:
       m_Calls: []

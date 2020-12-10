@@ -154,4 +154,10 @@ public class AIwithBrainBehaviour : MonoBehaviour
             agent.destination = obj.position;
         }
     }
+
+    private void OnDestroy()
+    {
+        gameAction.floatDataAction -= FloatDataHandler;
+        transformAction.transformAction -= StartHunt;
+    }
 }
