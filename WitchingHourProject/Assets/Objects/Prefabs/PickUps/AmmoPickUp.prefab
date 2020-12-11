@@ -55,5 +55,56 @@ PrefabInstance:
       propertyPath: m_Name
       value: AmmoPickUp
       objectReference: {fileID: 0}
+    - target: {fileID: 5778412542567348070, guid: 4b186d48f99cfde4498510874da2f115, type: 3}
+      propertyPath: onTriggerEnterEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5778412542567348070, guid: 4b186d48f99cfde4498510874da2f115, type: 3}
+      propertyPath: onTriggerEnterEvent.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
+      value: DestructBehaviour, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5778412542567348070, guid: 4b186d48f99cfde4498510874da2f115, type: 3}
+      propertyPath: onTriggerEnterEvent.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5778412542567348070, guid: 4b186d48f99cfde4498510874da2f115, type: 3}
+      propertyPath: onTriggerEnterEvent.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5778412542567348070, guid: 4b186d48f99cfde4498510874da2f115, type: 3}
+      propertyPath: onTriggerEnterEvent.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 7452988576361625411}
+    - target: {fileID: 5778412542567348070, guid: 4b186d48f99cfde4498510874da2f115, type: 3}
+      propertyPath: onTriggerEnterEvent.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: Destroy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5778412542567348070, guid: 4b186d48f99cfde4498510874da2f115, type: 3}
+      propertyPath: onTriggerEnterEvent.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5778412542567348070, guid: 4b186d48f99cfde4498510874da2f115, type: 3}
+      propertyPath: onTriggerEnterEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: 24f826809712beb41b665d84fb12510f, type: 2}
+    - target: {fileID: 5778412542567348070, guid: 4b186d48f99cfde4498510874da2f115, type: 3}
+      propertyPath: onTriggerEnterEvent.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: Raise
+      objectReference: {fileID: 0}
+    - target: {fileID: 5778412542567348070, guid: 4b186d48f99cfde4498510874da2f115, type: 3}
+      propertyPath: onTriggerEnterEvent.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: GameAction, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b186d48f99cfde4498510874da2f115, type: 3}
+--- !u!114 &7452988576361625411 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 189583115325912815, guid: 4b186d48f99cfde4498510874da2f115, type: 3}
+  m_PrefabInstance: {fileID: 7336325626388644268}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c665a2807c32a4748bf0189d61b74ff9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

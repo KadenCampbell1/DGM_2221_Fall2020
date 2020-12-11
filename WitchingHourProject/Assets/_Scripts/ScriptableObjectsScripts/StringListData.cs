@@ -18,11 +18,16 @@ public class StringListData : ScriptableObject
         i = 0;
     }
 
+    public void SetiToZero()
+    {
+        i = 0;
+    }
+
     public void GetNextString()
     {
         returnValue = stringList[i];
         i = (i + 1) % stringList.Count;
-        if (i == 1)
+        if (i >= 1)
         {
             listStartEvent.Invoke();
         }
