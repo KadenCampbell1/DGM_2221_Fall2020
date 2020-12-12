@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: MousePosition
   m_EditorClassIdentifier: 
   value: {x: -14.7140255, y: 1.3280046, z: -1.1267943}
+  mouseClickLayer:
+    serializedVersion: 2
+    m_Bits: 1024
   setPositionFromValueEvent:
     m_PersistentCalls:
       m_Calls: []

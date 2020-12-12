@@ -16,7 +16,7 @@ MonoBehaviour:
   - Hey, Wait! (Run into me again to continue Dialog)
   - You must help the Realms by defeating the Evil Wizard.
   - Discover the way to the other Realm and face the Evil Wizard in battle.
-  - I can't do it myself so take these Items.
+  - I can't do it myself so take this Ammo.
   - 
   listStartEvent:
     m_PersistentCalls:

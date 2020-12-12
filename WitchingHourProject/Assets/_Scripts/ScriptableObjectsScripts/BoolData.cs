@@ -7,11 +7,12 @@ using UnityEngine.Events;
 public class BoolData : ScriptableObject
 {
     public bool value;
-    public UnityEvent trueEvent;
+    public UnityEvent trueEvent, setValueEvent;
 
     public void SetValue(bool obj)
     {
         value = obj;
+        setValueEvent.Invoke();
     }
 
     public void CheckIfTrue()

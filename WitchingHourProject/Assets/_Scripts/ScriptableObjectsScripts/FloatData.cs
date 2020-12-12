@@ -9,7 +9,7 @@ using UnityEngine.Video;
 public class FloatData : ScriptableObject
 {
     public float value;
-    public UnityEvent lessThanZeroEvent;
+    public UnityEvent lessThanZeroEvent, greaterThanOneEvent;
 
     public void SetValue(float obj)
     {
@@ -19,6 +19,11 @@ public class FloatData : ScriptableObject
     public void IncrementValue(float obj)
     {
         value += obj;
+
+        if (value >= 1)
+        {
+            greaterThanOneEvent.Invoke();
+        }
 
         if (value <= 0.0001f && value >= -0.0001f)
         {

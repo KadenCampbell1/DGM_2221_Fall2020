@@ -8,6 +8,7 @@ using UnityEngine.Events;
 public class Vector3Data : ScriptableObject
 {
     public Vector3 value;
+    public LayerMask mouseClickLayer;
     public UnityEvent setPositionFromValueEvent, setValueFromPositionEvent;
 
     
@@ -35,7 +36,7 @@ public class Vector3Data : ScriptableObject
 
     public void SetValueFromMousePosition(Camera cam)
     {
-        if (Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out var hit, 100))
+        if (Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out var hit, 1500f, mouseClickLayer))
         {
             value = hit.point;
         }
