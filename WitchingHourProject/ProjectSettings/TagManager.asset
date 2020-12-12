@@ -18,7 +18,7 @@ TagManager:
   - PlayerBullet
   - PlayerClickLayer
   - PlayerInteraction
-  - 
+  - PlayerBoobyTrapInteraction
   - 
   - BulletInteraction
   - Enemy
@@ -32,8 +32,8 @@ TagManager:
   - StasisCircle
   - Platform
   - 
-  - 
-  - 
+  - Shield
+  - BoobyTrap
   - Ground
   - Respawner
   - 
