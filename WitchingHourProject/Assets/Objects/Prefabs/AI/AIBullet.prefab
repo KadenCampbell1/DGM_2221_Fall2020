@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canDestroyOnStart: 1
-  waitTime: 5
+  waitTime: 2
 --- !u!114 &8473960725067847335
 MonoBehaviour:
   m_ObjectHideFlags: 0

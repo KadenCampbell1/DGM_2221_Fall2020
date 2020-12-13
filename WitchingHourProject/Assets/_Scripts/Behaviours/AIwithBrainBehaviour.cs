@@ -120,12 +120,19 @@ public class AIwithBrainBehaviour : MonoBehaviour
 
     public void StartPatrol()
     {
-        StartCoroutine(Patrol());
+        if (gameObject.activeSelf)
+        { 
+            StartCoroutine(Patrol());
+        }
+       
     }
 
     public void StartHunt(Transform obj)
     {
-        StartCoroutine(Hunt(obj.transform));
+        if (gameObject.activeSelf)
+        {
+            StartCoroutine(Hunt(obj.transform));
+        }
     }
 
     private IEnumerator Patrol()
