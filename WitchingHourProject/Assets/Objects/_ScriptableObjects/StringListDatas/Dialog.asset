@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stringList:
   - Hey, Wait! (Run into me again to continue Dialog)
-  - You must help the Realms by defeating the Evil Wizard.
-  - Discover the way to the other Realm and face the Evil Wizard in battle.
+  - You must save the Realms from the Evil Wizard's wrong doings.
+  - Discover the way to the other Realm and follow the Evil Wizard across the treacherous
+    platforms to defeat him in battle.
   - I can't do it myself so take this Ammo.
   - 
   listStartEvent:
